@@ -7,6 +7,13 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <!-- Icono OrderSoft -->
+        <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/png">
+        
+        <!-- Estilos tailwind -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -43,4 +50,5 @@
 
         @livewireScripts
     </body>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
