@@ -12,6 +12,10 @@
         
         <!-- Estilos tailwind -->
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+         <!-- Iconos -->
+         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+         
         
 
         <!-- Fonts -->
@@ -50,5 +54,6 @@
 
         @livewireScripts
     </body>
+    <!-- Alertas -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>

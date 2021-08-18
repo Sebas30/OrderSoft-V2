@@ -15,6 +15,9 @@
          <!-- Estilos tailwind Css -->
          <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
+
+         
+
     </head>
     <body class="bg-indigo-500">
         <nav class="relative px-4 py-4 flex justify-between items-center bg-white">

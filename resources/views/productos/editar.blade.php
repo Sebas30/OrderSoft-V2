@@ -35,16 +35,17 @@
                                             value="{{ $producto->nombre }}">
                                     </div>
                                     <div class="">
-                                        <label
-                                            class="block uppercase border-none tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                            for="grid-first-name">
+                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                                             Categoria
                                         </label>
-                                        <input class="appearance-none border-none block w-full bg-gray-200 text-gray-700  rounded py-3 px-4 mb-3 
-                                        leading-tight focus:outline-none focus:bg-white" id="grid-first-name"
-                                            name="categoria" type="text"
-                                            placeholder="Snacks, almuerzos, bebidas, etc..."
-                                            value="{{ $producto->categoria }}">
+                                        <select name="categoria" class="appearance-none border-none block w-full bg-gray-200 text-gray-700  rounded py-3 px-12 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name">
+                                                <option value="{{ $producto->categoria }}">--- Selecciona ---</option>
+                                                <option value="Desayunos">Desayunos</option>
+                                                <option value="Almuerzos">Almuerzos</option>
+                                                <option value="Snack's">Snack's</option>
+                                                <option value="Cenas">Cenas</option>
+                                                <option value="Bebidas">Bebidas</option>
+                                        </select>
                                     </div>
 
                                 </div>
@@ -65,7 +66,7 @@
                                 </label>
                                 <input class="appearance-none border-none block w-full bg-gray-200 text-gray-700  rounded py-3 px-4 mb-3 
                                     leading-tight focus:outline-none focus:bg-white" id="grid-first-name"
-                                    name="descripcion" type="text" placeholder="Bebidas, Snacks, cenas, almuerzos"
+                                    name="descripcion" type="text" placeholder="Pizza doble queso, mixta o de un solo sabor"
                                     value="{{ $producto->descripcion }}">
                         </div>
                         <center>
@@ -81,9 +82,10 @@
                                 <label
                                     class="flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group">
                                     <div class="flex flex-col items-center justify-center pt-7">
-                                        <p
-                                            class="text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider">
-                                            Seleccione la imagen</p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: rgb(72, 85, 194);transform: ;msFilter:;"><path d="m9 13 3-4 3 4.5V12h4V5c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h8v-4H5l3-4 1 2z"></path><path d="M19 14h-2v3h-3v2h3v3h2v-3h3v-2h-3z"></path></svg>
+                                        <p class="text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider">
+                                            Seleccione la imagen
+                                        </p>
                                     </div>
                                     <input name="imagen" id="imagen" type="file" class="hidden">
                                 </label>

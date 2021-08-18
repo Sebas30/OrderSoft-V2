@@ -11,7 +11,7 @@
                 <a type="button" href="{{ route('productos.create') }}" 
                 class="bg-indigo-500 px-12 py-2 rounded text-gray-200
                 font-semibold hover:bg-indigo-800 transition duration-200 each-in-out">
-                    Nuevo
+                    <i class='bx bx-plus-medical'></i> Nuevo producto
                 </a>
 
                 <table class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6">
@@ -46,7 +46,7 @@
                                     <a  href="{{ route('productos.edit',$producto->id) }}"
                                         class="rounded bg-indigo-500 hover:bg-indigo-600 text-white font-bold
                                         py-2 px-4">
-                                        Editar
+                                        <i class='bx bxs-pencil' ></i> Editar
                                     </a>
 
                                     <!-- Botón eliminar  -->
@@ -54,7 +54,7 @@
                                         @csrf <!-- Generación del token -->
                                         @method('DELETE')
                                         <button style="margin-left: 10px;" type="submit" class="rounded bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4">
-                                            Borrar
+                                            <i class='bx bxs-trash' ></i> Borrar
                                         </button>
                                     </form>
                                 </div>

@@ -16,7 +16,7 @@ class CategoriaController extends Controller
     {
         //
         //Referenciamos que nos págine 5 productos
-        $categorias = Categoria::paginate(5);
+        $categorias = Categoria::paginate(6);
 
         return view('categorias.index',compact('categorias'));
     }
@@ -29,6 +29,7 @@ class CategoriaController extends Controller
     public function create()
     {
         //
+        return view('categorias.crear');
     }
 
     /**
@@ -40,6 +41,23 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'NombreCategoria' => 'required', 
+            'imagen' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:1024'
+            
+        ]);
+        
+        $categoria = $request->all();
+
+        if($imagen = $request->file('imagen')){
+            $rutaGuardarImg = 'images/';
+            $imagenCategoria = date('ymdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenCategoria);
+            $categoria['imagen'] = "$imagenCategoria";
+        }
+        
+        Categoria::create($categoria);
+        return redirect()->route('categorias.index');
     }
 
     /**
@@ -51,6 +69,7 @@ class CategoriaController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
@@ -59,9 +78,10 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Categoria $categoria)
     {
         //
+        return view ('categorias.editar', compact('categoria'));
     }
 
     /**
@@ -71,9 +91,25 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Categoria $categoria)
     {
         //
+         //
+         $request->validate([
+            'NombreCategoria' => 'required'
+        ]);
+
+        $cat = $request->all();
+
+        if($imagen = $request->file('imagen')){
+            $rutaGuardarImg = 'images/';
+            $imagenCat = date('ymdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenCat);
+            $cat['imagen'] = "$imagenCat";
+        }
+        
+         $categoria->update($cat);
+         return redirect()->route('categorias.index');
     }
 
     /**
@@ -82,8 +118,10 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Categoria $categoria)
     {
         //
+        $categoria->delete();
+        return redirect()->route('categorias.index');
     }
 }
